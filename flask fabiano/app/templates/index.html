@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <he3>Projeto Flask</h3>
+        <h5>@senaisc</h5>
+    <div>
+        {% include 'nave.html' %}
+    <div>
+        <h1>Bem-vindo, {{context.nome}} a aula Flask</h1>
+        <p><b>Idade:</b>{{context.idade}}</p>
+
+        {% if current_user.is_authenticated %}
+        <span class="btn btn-primary">{{current_user.nome}} {{current_user.sobrenome}}</span>
+        <a href="{{url_for('logout')}}" class="btn btn-danger">Sair</a>
+        {% else %}
+        <a href="{{url_for('cadastro')}}" class="btn btn-primary">Faça o seu cadastro!</a>
+        {% endif %}
+        <hr>
+        
+        <img src = "{{url_for('static', filename = 'img/Senai.png')}}">
+        
+    <div>
+
+{% endblock %}
